@@ -1,5 +1,3 @@
-deverá conter a URL de acesso ao sistema e maiores informações de acesso, 
-tais como, login e senha, caso necessários;
-
-zipar roteiro_de_instalacao.txt e roteiro_de_acesso.txt e submeter
-no https://jems.sbc.org.br/jems2
+Download do Plugin: 
+-[https://bitbucket.org/danielgsilva88/faceverificationquiz/get/v0.1.0.zip] ou 
+-[https://drive.google.com/drive/folders/1iO14i3t-ZSeKQH08c_MSc1Zw7iSpyx41?usp=sharing].

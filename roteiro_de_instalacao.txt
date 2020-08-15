@@ -1,1 +1,12 @@
-deverá conter detalhes do processo e requisitos de instalação do software. Vale ressaltar que esse item é obrigatório somente para os casos em que o protótipo necessitar de instalação.
+Roteiro de Instalação:
+1. O plugin pode ser baixado nos seguintes links: (1) [https://bitbucket.org/danielgsilva88/faceverificationquiz/get/v0.1.0.zip] ou (2) [https://drive.google.com/drive/folders/1iO14i3t-ZSeKQH08c_MSc1Zw7iSpyx41?usp=sharing].
+2. Na página de administração do Moodle, vá em Plugins > Instalar plugins, selecionar o arquivo .zip e instale no plugin clicando em 'Instalar plugin do arquivo ZIP'. Em seguida, o Moodle vai validar o plugin, e se tudo estiver corretamente configurado, clique em 'Continuar'.
+3. A próxima tela é da atualização do banco de dados, então clique em 'Atualizar base de dados do Moodle agora'. Se apareceu mensagem de 'Sucesso', o plugin foi instalado.
+
+
+Roteiro de Utilização:
+1. Vá até a página principal do curso, clique em 'Ativar edição' (é necessário ter permissão de edição no curso) 
+2. Em seguida, clique em Editar > Editar configurações.
+3. Vá até a seção Restrições extras nas tentativas e Habilite o plugin Face Verification Quiz.
+4. Clique em Salvar. Pronto, plugin habilitado no Quiz selecionado.
+

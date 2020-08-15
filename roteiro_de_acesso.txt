@@ -1,0 +1,5 @@
+deverá conter a URL de acesso ao sistema e maiores informações de acesso, 
+tais como, login e senha, caso necessários;
+
+zipar roteiro_de_instalacao.txt e roteiro_de_acesso.txt e submeter
+no https://jems.sbc.org.br/jems2

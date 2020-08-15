@@ -1,0 +1,1 @@
+deverá conter detalhes do processo e requisitos de instalação do software. Vale ressaltar que esse item é obrigatório somente para os casos em que o protótipo necessitar de instalação.

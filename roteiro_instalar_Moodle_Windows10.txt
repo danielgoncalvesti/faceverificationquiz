@@ -9,7 +9,7 @@ http://hackerzone.com.br/blog/configurar-ssl-no-xampp/
 3) http://localhost/phpmyadmin
 CREATE DATABASE moodle;
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'sua_senha';
-GRANT ALL ON moodle.* TO 'admin'@'localhost' IDENTIFIED BY '2008Ufabc2018***' WITH GRANT OPTION;
+GRANT ALL ON moodle.* TO 'admin'@'localhost' IDENTIFIED BY 'sua_senha' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 4) em xampp/php/php.ini, incluir

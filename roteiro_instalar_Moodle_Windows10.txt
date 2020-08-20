@@ -1,0 +1,57 @@
+Instalar Moodle com HTTPS no Windons 10
+=======================================
+
+1) instalar xampp v3.2.4
+
+2) instalar certificado
+http://hackerzone.com.br/blog/configurar-ssl-no-xampp/
+
+3) http://localhost/phpmyadmin
+CREATE DATABASE moodle;
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'sua_senha';
+GRANT ALL ON moodle.* TO 'admin'@'localhost' IDENTIFIED BY '2008Ufabc2018***' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+4) em xampp/php/php.ini, incluir
+extension=php_intl.dll
+
+5) baixar moodle 3.9 (a versão tgz, sem o instalador .exe)
+
+mover a pasta moodle para C:\xampp\htdocs\moodle
+
+em, C:\xampp\htdocs\moodle\config.ini, deve ficar como:
+
+<?php  // Moodle configuration file
+
+unset($CFG);
+global $CFG;
+$CFG = new stdClass();
+
+$CFG->dbtype    = 'mariadb';
+$CFG->dblibrary = 'native';
+$CFG->dbhost    = 'localhost';
+$CFG->dbname    = 'moodle';
+$CFG->dbuser    = 'admin';
+$CFG->dbpass    = 'sua_senha';
+$CFG->prefix    = 'mdl_';
+$CFG->dboptions = array (
+  'dbpersist' => 0,
+  'dbport' => 3306,
+  'dbsocket' => '',
+  'dbcollation' => 'utf8mb4_general_ci',
+);
+
+$CFG->wwwroot   = 'https://localhost';
+$CFG->dataroot  = 'C:\\xampp\\htdocs\\moodledata';
+$CFG->admin     = 'admin';
+
+$CFG->directorypermissions = 0777;
+
+require_once(__DIR__ . '/lib/setup.php');
+
+// There is no php closing tag in this file,
+// it is intentional because it prevents trailing whitespace problems!
+
+
+
+

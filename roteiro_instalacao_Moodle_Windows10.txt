@@ -15,7 +15,7 @@ FLUSH PRIVILEGES;
 4) em xampp/php/php.ini, incluir
 extension=php_intl.dll
 
-5) baixar moodle 3.9 (a versão tgz, sem o instalador .exe)
+5) baixar moodle 3.9 (a versï¿½o tgz, sem o instalador .exe)
 
 mover a pasta moodle para C:\xampp\htdocs\moodle
 

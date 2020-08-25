@@ -30,8 +30,8 @@ $string['checkrequiredsettings'] = 'Habilitar Face Verification Quiz antes de in
 $string['checkrequiredsettings_help'] = 'checkrequiredsettings_help';
 $string['notrequiredoptionsettings'] = 'Desabilitado';
 $string['requiredoptionsettings'] = 'Habilitado';
-$string['fvquizheaderfacialcheck'] = 'Verificar face por foto';
-$string['fvquizheaderfacialregister'] = 'Registrar face por foto';
+$string['fvquizheaderfacialcheck'] = 'Verificar face por foto - <a href="https://forms.gle/9Rxtm9XLN5RUtNUS8">avalie esse plugin</a>';
+$string['fvquizheaderfacialregister'] = 'Registrar face por foto - <a href="https://forms.gle/9Rxtm9XLN5RUtNUS8">avalie esse plugin</a>';
 $string['userhavetoberegistered'] = 'Por favor, registre sua face por foto antes de iniciar o questionário.';
 $string['userhavetoverifyface'] = 'Por favor, Verique sua face por foto antes de iniciar o questionário.';
 $string['youarenotsimilartotheuser'] = 'Desculpe, você não parece com a pessoa registrada. Tente novamente.';

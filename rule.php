@@ -58,7 +58,7 @@ class quizaccess_faceverificationquiz extends quiz_access_rule_base {
         
         // $face_registered = $DB->get_record('quizaccess_faceid', array('username' => $username), 'faceid');
         $array_face_registered = $DB->get_records_sql("
-                        SELECT facevalues FROM mdl_fvquiz_registered WHERE username = :username ORDER BY timecreated DESC", ['username' => $username]);
+                        SELECT facevalues FROM {fvquiz_registered} WHERE username = :username ORDER BY timecreated DESC", ['username' => $username]);
         $arrayvalues_face_registered = array_values($array_face_registered);
         if(empty($arrayvalues_face_registered)){
             $arrayvalues_face_registered[0] = ''; 

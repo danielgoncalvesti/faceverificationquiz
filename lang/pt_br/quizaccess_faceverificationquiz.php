@@ -36,6 +36,6 @@ $string['userhavetoberegistered'] = 'Por favor, registre sua face por foto antes
 $string['userhavetoverifyface'] = 'Por favor, Verique sua face por foto antes de iniciar o questionário.';
 $string['youarenotsimilartotheuser'] = 'Desculpe, você não parece com a pessoa registrada. Tente novamente.';
 $string['ok'] = 'ok';
-$string['facialcheckbtn'] = '<button id="snapshot" class="btn btn-primary">Verificar Face</button>';
+$string['facialcheckbtn'] = '<button id="snapshot" class="btn btn-primary" style="display:none;">Verificar Face</button>';
 $string['facialregisterbtn'] = '<button id="snapshot" class="btn btn-primary">Registar Face</button>';
 $string['failed:sesskey'] = 'Por favor, atualize a página e tente novamente';

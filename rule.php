@@ -140,8 +140,9 @@ class quizaccess_faceverificationquiz extends quiz_access_rule_base {
             $mform->addElement('header', 'fvquizheader', get_string('fvquizheaderfacialregister', 'quizaccess_faceverificationquiz'));
             $mform->addElement('html', 
             '<div id="snapshotholder_webrtc" style="display: none; position: relative;overflow: hidden;" >
+                <div id="cssloader" style="height: 320px; width: 480px; position: absolute; top:0;left:0;"><div class="loader"></div></div>
                 <canvas id="render" width="480px" height="320px" style=" position: absolute; top: 0;left: 0;"></canvas>
-                <video  id="videostreaming" autoplay playsinline style="top: 0;left: 0;" width="480px" height="320px"></video>
+                <video id="videostreaming" autoplay playsinline style="top: 0;left: 0;opacity: 10%; width: 480px" width="480" height="320"></video>
                 <canvas id="canvasFaceCrop" style="z-index:100; margin-left: 400px;display:none;" width="480" height="320" ></canvas>
                 <canvas id="canvasFrame" style="position: relative; top:0; left:0; z-index:1; display:none;" width="480px" height="320px" ></canvas>
                 <img id="img_preview" width="200px" src="">

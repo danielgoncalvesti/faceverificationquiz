@@ -58,7 +58,7 @@ class quizaccess_faceverificationquiz extends quiz_access_rule_base {
         
         // $face_registered = $DB->get_record('quizaccess_faceid', array('username' => $username), 'faceid');
         $array_face_registered = $DB->get_records_sql("
-                        SELECT facevalues FROM mdl_fvquiz_registered WHERE username = :username ORDER BY timecreated DESC", ['username' => $username]);
+                        SELECT facevalues FROM {fvquiz_registered} WHERE username = :username ORDER BY timecreated DESC", ['username' => $username]);
         $arrayvalues_face_registered = array_values($array_face_registered);
         if(empty($arrayvalues_face_registered)){
             $arrayvalues_face_registered[0] = ''; 
@@ -93,12 +93,41 @@ class quizaccess_faceverificationquiz extends quiz_access_rule_base {
         ], false, $jsmodule);
 
         // $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/mod/quiz/accessrule/faceverificationquiz/lib/main.js'), true);
+        $mform->addElement('html',
+        '<style>
+        .loader {
+            position: absolute;
+            top: 30%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 2s linear infinite;
+        }
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        </style>
+        ');
         if ($is_registered_face){
             $mform->addElement('header', 'fvquizheader', get_string('fvquizheaderfacialcheck', 'quizaccess_faceverificationquiz'));
             $mform->addElement('html', 
             '<div id="snapshotholder_webrtc" style="display: none; position: relative;overflow: hidden;" >
-            <canvas id="render" width="480px" height="320px" style=" position: absolute; top: 0;left: 0;"></canvas>
-            <video autoplay playsinline style="top: 0;left: 0;" width="480px" height="320px"></video>
+            <div id="cssloader" style="height: 320px; width: 480px; position: absolute; top:0;left:0;"><div class="loader"></div></div>
+            <canvas id="render" width="480px" height="320px" style="position: absolute; top: 0;left: 0;"></canvas>
+            <video id="videostreaming" autoplay playsinline style="top: 0;left: 0;opacity: 10%; width: 480px" width="480" height="320"></video>
             <canvas id="canvasFaceCrop" style="z-index:100; margin-left: 400px;display:none;" width="480" height="320" ></canvas>
             <canvas id="canvasFrame" style="position: relative; top:0; left:0; z-index:1; display:none;" width="480px" height="320px" ></canvas>
             <img id="img_preview" width="200px" src="">
@@ -111,8 +140,9 @@ class quizaccess_faceverificationquiz extends quiz_access_rule_base {
             $mform->addElement('header', 'fvquizheader', get_string('fvquizheaderfacialregister', 'quizaccess_faceverificationquiz'));
             $mform->addElement('html', 
             '<div id="snapshotholder_webrtc" style="display: none; position: relative;overflow: hidden;" >
+                <div id="cssloader" style="height: 320px; width: 480px; position: absolute; top:0;left:0;"><div class="loader"></div></div>
                 <canvas id="render" width="480px" height="320px" style=" position: absolute; top: 0;left: 0;"></canvas>
-                <video autoplay playsinline style="top: 0;left: 0;" width="480px" height="320px"></video>
+                <video id="videostreaming" autoplay playsinline style="top: 0;left: 0;opacity: 10%; width: 480px" width="480" height="320"></video>
                 <canvas id="canvasFaceCrop" style="z-index:100; margin-left: 400px;display:none;" width="480" height="320" ></canvas>
                 <canvas id="canvasFrame" style="position: relative; top:0; left:0; z-index:1; display:none;" width="480px" height="320px" ></canvas>
                 <img id="img_preview" width="200px" src="">

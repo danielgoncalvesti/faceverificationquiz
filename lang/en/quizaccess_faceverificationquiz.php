@@ -36,6 +36,7 @@ $string['userhavetoberegistered'] = 'Please, register your face before start the
 $string['userhavetoverifyface'] = 'Please, check your face before start the quiz.';
 $string['youarenotsimilartotheuser'] = 'Sorry, you do not look like the registered person.';
 $string['ok'] = 'ok';
-$string['facialcheckbtn'] = '<button id="snapshot" class="btn btn-primary">To Check Face</button>';
-$string['facialregisterbtn'] = '<button id="snapshot" class="btn btn-primary">To Register Face</button>';
+$string['facialcheckbtn'] = '<button id="snapshot" class="btn btn-primary" style="display:none;">To Check Face</button>';
+$string['facialregisterbtn'] = '<button id="snapshot" class="btn btn-primary" style="display:none;">To Register Face</button>';
 $string['failed:sesskey'] = 'Please, refresh the page and retry again';
+$string['failed:fileisempty'] = 'File is empty';

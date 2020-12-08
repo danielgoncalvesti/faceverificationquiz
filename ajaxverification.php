@@ -38,6 +38,7 @@ defined('MOODLE_INTERNAL') || die;
 
 require_once("$CFG->libdir/gdlib.php");
 $PAGE->set_url('/mod/quiz/accessrule/faceverificationquiz/upload.php');
+$array = array("errors" => [], "status" => false);
 
 require_login(get_site(), true, null, true, true);
 $file = required_param('file', PARAM_RAW);
@@ -49,7 +50,6 @@ $quizid = required_param('quizid', PARAM_RAW);
 $facedetectionscore = required_param('facedetectionscore', PARAM_RAW);
  
 $systemcontext = context_system::instance();
-$array = ['errors' => [], 'status' => false];
 
 echo $OUTPUT->header(); // Send headers.
 

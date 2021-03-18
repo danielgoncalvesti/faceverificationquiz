@@ -29,25 +29,25 @@ define('NO_DEBUG_DISPLAY', true);
 
 require_once(__DIR__ . '/../../../../config.php');
 
+defined('MOODLE_INTERNAL') || die;
+
 require 'vendor/autoload.php';
 use Kunnu\Dropbox\Dropbox;
 use Kunnu\Dropbox\DropboxApp;
 use Kunnu\Dropbox\DropboxFile;
-
-defined('MOODLE_INTERNAL') || die;
 
 require_once("$CFG->libdir/gdlib.php");
 $PAGE->set_url('/mod/quiz/accessrule/faceverificationquiz/upload.php');
 $array = array("errors" => [], "status" => false);
 
 require_login(get_site(), true, null, true, true);
-$file = required_param('file', PARAM_RAW);
 $sessionid = required_param('sesskey', PARAM_RAW);
 $facevalues = required_param('descriptor', PARAM_RAW);
 $euclidean_distance = required_param('euclidean_distance', PARAM_RAW);
 $courseid = required_param('courseid', PARAM_RAW);
 $quizid = required_param('quizid', PARAM_RAW);
 $facedetectionscore = required_param('facedetectionscore', PARAM_RAW);
+$file = required_param('file', PARAM_RAW);
  
 $systemcontext = context_system::instance();
 
@@ -73,7 +73,9 @@ if (empty($array['errors'])) {
         die(json_encode($array));
     }    
 
-    $context = context_user::instance($USER->id, MUST_EXIST);
+    // 
+    $systemcontext = context_system::instance();
+
 
     $tempfile = tempnam(sys_get_temp_dir(), 'faceverificationquiz');
     file_put_contents($tempfile, $file);
@@ -100,6 +102,7 @@ if (empty($array['errors'])) {
 
     // // $client->createFolder("/teste");
     // $client->upload($tempfile, 'teste', $mode = 'add');
+    $context = context_user::instance($USER->id, MUST_EXIST);
 
     $faceverification = new stdClass();
     $faceverification->username = $USER->username;

@@ -22,8 +22,15 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+define('AJAX_SCRIPT', true);
+define('NO_DEBUG_DISPLAY', true);
 
 defined('MOODLE_INTERNAL') || die();
+
+require 'vendor/autoload.php';
+use Kunnu\Dropbox\Dropbox;
+use Kunnu\Dropbox\DropboxApp;
+use Kunnu\Dropbox\DropboxFile;
 
 require_once($CFG->dirroot . '/mod/quiz/accessrule/accessrulebase.php');
 
@@ -44,6 +51,21 @@ class quizaccess_faceverificationquiz extends quiz_access_rule_base {
 
     public function add_preflight_check_form_fields(mod_quiz_preflight_check_form $quizform,
             MoodleQuickForm $mform, $attemptid) {
+
+        // //Configure Dropbox Application
+        // $app = new DropboxApp("9d8ukwyihgvpmyl", "00v4mdt2x c5zpj4", "ysIiD9OB6K0AAAAAAAAAAa5mO0TRGhL8j7ouX6ORHiG2YabMxG-2m2jyDypS-bMQ");
+
+        // // //Configure Dropbox service
+        // $dropbox = new Dropbox($app);
+
+        // // Download Dropbox file
+        // $file = $dropbox->download("/algoritmos/atividades/Quiz01/admin/2021-03-18-18:03:1503.png");
+        // // File Contents
+        // $itemData = $file->getContents();    
+
+        // $data = base64_encode($itemData); 
+
+        // echo '<img src=' . '"data:image/jpeg;base64,' . $data . '">';
                 
         // var_dump($this->quiz->course);
         global $PAGE, $CFG, $USER, $DB;

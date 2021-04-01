@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'quizaccess_faceverificationquiz';
-$plugin->release = '1.1.5';
+$plugin->release = '1.1.6';
 $plugin->version = 2021032311;
 $plugin->requires = 2019052000;
 $plugin->maturity = MATURITY_BETA;

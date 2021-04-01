@@ -45,6 +45,7 @@ $sessionid = required_param('sesskey', PARAM_RAW);
 $descriptor_face = required_param('descriptor', PARAM_RAW);
 $courseid = required_param('courseid', PARAM_RAW);
 
+
 $systemcontext = context_system::instance();
 $array = ['errors' => [], 'status' => false];
 
@@ -95,9 +96,8 @@ if (empty($array['errors'])) {
     $shortname_course = str_replace(' ', '', $course->shortname);
     $date = new \DateTime('now');
     $filename = $date->format('Y-m-d-H:i:si');
-    $pathFile = "/". $shortname_course . "/" . "cadastro" . "/" . $USER->username . "/" . $filename . ".png"; 
-    $fileDropBox = $dropbox->upload($dropboxFile, $pathFile, ['autorename' => true]); 
-    // $fileDropBox->getName();
+    $pathFile = "/". $shortname_course . "/" . "cadastro" . "/" . $USER->username . "/" . $filename . ".png";
+    $fileDropBox = $dropbox->upload($dropboxFile, $pathFile, ['autorename' => true]);
 
     $newpicture = (int)process_new_icon($context, 'user', 'icon', 0, $tempfile);
     if ($newpicture != $USER->picture) {
@@ -105,6 +105,7 @@ if (empty($array['errors'])) {
 
         $faceidrecord = new stdClass();
         $faceidrecord->username = $USER->username;
+        $faceidrecord->courseid = $course->id;
         $faceidrecord->facevalues = $descriptor_face;
         $faceidrecord->pathfiledropbox = $pathFile;
         $faceidrecord->timecreated = time();

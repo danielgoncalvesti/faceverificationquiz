@@ -50,8 +50,9 @@ class quizaccess_faceverificationquiz extends quiz_access_rule_base {
             MoodleQuickForm $mform, $attemptid) {
         global $PAGE, $CFG, $USER, $DB;
         $username = $USER->username;
+        $course = $this->quiz->course;
         $type_of_access;
-        $is_registered_face = $DB->record_exists('fvquiz_registered', array('username'=>$username));
+        $is_registered_face = $DB->record_exists('fvquiz_registered', array('username'=>$username, 'courseid'=>$course));
         if ($is_registered_face){
             $type_of_access = 'verification';
         } else {

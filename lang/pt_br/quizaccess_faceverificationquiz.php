@@ -39,3 +39,7 @@ $string['ok'] = 'ok';
 $string['facialcheckbtn'] = '<button id="snapshot" class="btn btn-primary" style="display:none;">Verificar Face</button>';
 $string['facialregisterbtn'] = '<button id="snapshot" class="btn btn-primary">Registar Face</button>';
 $string['failed:sesskey'] = 'Por favor, atualize a página e tente novamente';
+$string['appkey_dropbox'] = 'App Key (Dropbox)';
+$string['appsecret_dropbox'] = 'App Secret (Dropbox)';
+$string['accesstoken_dropbox'] = 'Access Token (Dropbox)';
+$string['foldername_dropbox'] = 'Nome da pasta no Dropbox';

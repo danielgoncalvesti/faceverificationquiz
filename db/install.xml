@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/quiz/accessrule/faceverificationquiz/db" VERSION="20210326" COMMENT="XMLDB file for Moodle mod/quiz/accessrule/faceverificationquiz"
+<XMLDB PATH="mod/quiz/accessrule/faceverificationquiz/db" VERSION="20210430" COMMENT="XMLDB file for Moodle mod/quiz/accessrule/faceverificationquiz"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../../../lib/xmldb/xmldb.xsd"
 >
@@ -11,6 +11,7 @@
         <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="facevalues" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="pathfiledropbox" TYPE="char" LENGTH="1333" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="rootfolderdropbox" TYPE="char" LENGTH="512" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
@@ -28,6 +29,7 @@
         <FIELD NAME="euclidean_distance" TYPE="number" LENGTH="5" NOTNULL="true" SEQUENCE="false" DECIMALS="4"/>
         <FIELD NAME="facevalues" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="expired" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="rootfolderdropbox" TYPE="char" LENGTH="512" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="pathfiledropbox" TYPE="char" LENGTH="1333" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
       </FIELDS>

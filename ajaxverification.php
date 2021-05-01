@@ -78,10 +78,12 @@ if (empty($array['errors'])) {
     $tempfile = tempnam(sys_get_temp_dir(), 'faceverificationquiz');
     file_put_contents($tempfile, $file);
 
+    $config = get_config('quizaccess_faceverificationquiz');
+
     $dropboxFile = new DropboxFile($tempfile);
 
     //Configure Dropbox Application
-    $app = new DropboxApp("9d8ukwyihgvpmyl", "00v4mdt2xc5zpj4", "ysIiD9OB6K0AAAAAAAAAAa5mO0TRGhL8j7ouX6ORHiG2YabMxG-2m2jyDypS-bMQ");
+    $app = new DropboxApp($config->appkey_dropbox, $config->appsecret_dropbox, $config->accesstoken_dropbox);
     //Configure Dropbox service
     $dropbox = new Dropbox($app);
 
@@ -91,9 +93,14 @@ if (empty($array['errors'])) {
     $quizname = str_replace(' ', '', $quiz->name);
     $date = new \DateTime('now');
     $filename = $date->format('Y-m-d-H:i:si');
-    $pathFile = "/". $shortname_course . "/" . "atividades" . "/" . $quizname . "/" . $USER->username . "/" . $filename . ".png";
+    $rootfolderdropbox = $config->foldername_dropbox;
+    $pathFile =  "/" . $shortname_course . "/" . "atividades" . "/" . $quizname . "/" . $USER->username . "/" . $filename . ".png";
     // Upload file
-    $fileDropBox = $dropbox->upload($dropboxFile, $pathFile, ['autorename' => true]);
+    if($rootfolderdropbox != null || !empty($rootfolderdropbox)){ 
+        $fileDropBox = $dropbox->upload($dropboxFile, "/" . $rootfolderdropbox . $pathFile, ['autorename' => true]);
+    } else {
+        $fileDropBox = $dropbox->upload($dropboxFile, $pathFile, ['autorename' => true]);
+    }
 
     $faceverification = new stdClass();
     $faceverification->username = $USER->username;
@@ -103,6 +110,7 @@ if (empty($array['errors'])) {
     $faceverification->euclidean_distance = $euclidean_distance;
     $faceverification->facevalues = $facevalues;
     $faceverification->facedetectionscore = $facedetectionscore;
+    $faceverification->rootfolderdropbox = $rootfolderdropbox;
     $faceverification->pathfiledropbox = $pathFile;
     $faceverification->timecreated = time();
     $DB->insert_record('fvquiz_validation', $faceverification);

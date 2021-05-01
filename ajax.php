@@ -85,10 +85,12 @@ if (empty($array['errors'])) {
     $tempfile = tempnam(sys_get_temp_dir(), 'faceverificationquiz');
     file_put_contents($tempfile, $file);
 
+    $config = get_config('quizaccess_faceverificationquiz');
+
     //set file to the dropbox
     $dropboxFile = new DropboxFile($tempfile);
     //Configure Dropbox Application
-    $app = new DropboxApp("9d8ukwyihgvpmyl", "00v4mdt2xc5zpj4", "ysIiD9OB6K0AAAAAAAAAAa5mO0TRGhL8j7ouX6ORHiG2YabMxG-2m2jyDypS-bMQ");
+    $app = new DropboxApp($config->appkey_dropbox, $config->appsecret_dropbox, $config->accesstoken_dropbox);
     //Configure Dropbox service
     $dropbox = new Dropbox($app);
 
@@ -96,9 +98,13 @@ if (empty($array['errors'])) {
     $shortname_course = str_replace(' ', '', $course->shortname);
     $date = new \DateTime('now');
     $filename = $date->format('Y-m-d-H:i:si');
-    $pathFile = "/". $shortname_course . "/" . "cadastro" . "/" . $USER->username . "/" . $filename . ".png";
-    $fileDropBox = $dropbox->upload($dropboxFile, $pathFile, ['autorename' => true]);
-
+    $rootfolderdropbox = $config->foldername_dropbox;
+    $pathFile =  "/" . $shortname_course . "/" . "cadastro" . "/" . $USER->username . "/" . $filename . ".png";
+    if($rootfolderdropbox != null || !empty($rootfolderdropbox)){
+        $fileDropBox = $dropbox->upload($dropboxFile, "/" . $rootfolderdropbox . $pathFile, ['autorename' => true]);
+    } else {
+        $fileDropBox = $dropbox->upload($dropboxFile, $pathFile, ['autorename' => true]);
+    }
     $newpicture = (int)process_new_icon($context, 'user', 'icon', 0, $tempfile);
     if ($newpicture != $USER->picture) {
         $DB->set_field('user', 'picture', $newpicture, ['id' => $USER->id]);
@@ -107,6 +113,7 @@ if (empty($array['errors'])) {
         $faceidrecord->username = $USER->username;
         $faceidrecord->courseid = $course->id;
         $faceidrecord->facevalues = $descriptor_face;
+        $faceidrecord->rootfolderdropbox = $rootfolderdropbox;
         $faceidrecord->pathfiledropbox = $pathFile;
         $faceidrecord->timecreated = time();
         $DB->insert_record('fvquiz_registered', $faceidrecord);

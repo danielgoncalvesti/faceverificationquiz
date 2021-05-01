@@ -40,3 +40,7 @@ $string['facialcheckbtn'] = '<button id="snapshot" class="btn btn-primary" style
 $string['facialregisterbtn'] = '<button id="snapshot" class="btn btn-primary" style="display:none;">To Register Face</button>';
 $string['failed:sesskey'] = 'Please, refresh the page and retry again';
 $string['failed:fileisempty'] = 'File is empty';
+$string['appkey_dropbox'] = 'App Key (Dropbox)';
+$string['appsecret_dropbox'] = 'App Secret (Dropbox)';
+$string['accesstoken_dropbox'] = 'Access Token (Dropbox)';
+$string['foldername_dropbox'] = 'Folder name in Dropbox ';

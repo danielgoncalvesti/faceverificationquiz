@@ -105,7 +105,7 @@ if (empty($array['errors'])) {
     } else {
         $fileDropBox = $dropbox->upload($dropboxFile, $pathFile, ['autorename' => true]);
     }
-    $newpicture = (int)process_new_icon($context, 'user', 'icon', 0, $tempfile);
+    /* $newpicture = (int)process_new_icon($context, 'user', 'icon', 0, $tempfile);
     if ($newpicture != $USER->picture) {
         $DB->set_field('user', 'picture', $newpicture, ['id' => $USER->id]);
 
@@ -121,7 +121,18 @@ if (empty($array['errors'])) {
         $array['status'] = true;
     } else {
         $array['errors'][] = get_string('failed', 'faceverificationquiz');
-    }
+    } */
+
+    $faceidrecord = new stdClass();
+    $faceidrecord->username = $USER->username;
+    $faceidrecord->courseid = $course->id;
+    $faceidrecord->facevalues = $descriptor_face;
+    $faceidrecord->rootfolderdropbox = $rootfolderdropbox;
+    $faceidrecord->pathfiledropbox = $pathFile;
+    $faceidrecord->timecreated = time();
+    $DB->insert_record('fvquiz_registered', $faceidrecord);
+
+    $array['status'] = true;
 
     @unlink($tempfile);
 }

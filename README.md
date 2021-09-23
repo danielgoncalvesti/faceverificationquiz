@@ -9,9 +9,16 @@ The project also uses the [Face-api.js](https://justadudewhohacks.github.io/face
 ## What is Face Verification Quiz?
 Face Verification Quiz for Moodle is a plugin that enables to verify the user by a webcam before starts a Quiz. So it uses the face verification techniques to verify the identity of the user.
 
-## Quick Links
+## Examples
+### Verification Attempt
+<img src="https://raw.githubusercontent.com/danielgoncalvesti/faceverificationquiz/main/docs/faceverification-attempt.png" width="632" height="528">
+
+### After User Verified
+<img src="https://raw.githubusercontent.com/danielgoncalvesti/faceverificationquiz/main/docs/faceverification-result.png" width="652" height="522">
+
+<!-- ## Quick Links
 ## Installation
 ## Documentation
-## License
+## License -->
 -------
 Code is under the GNU GENERAL PUBLIC LICENSE v3.

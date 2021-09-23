@@ -13,7 +13,7 @@ Face Verification Quiz for Moodle is a plugin that enables to verify the user by
 ### Verification Attempt
 <img src="https://raw.githubusercontent.com/danielgoncalvesti/faceverificationquiz/main/docs/faceverification-attempt.png" width="632" height="528">
 
-### After User Verified
+### After Verifying User
 <img src="https://raw.githubusercontent.com/danielgoncalvesti/faceverificationquiz/main/docs/faceverification-result.png" width="652" height="522">
 
 <!-- ## Quick Links

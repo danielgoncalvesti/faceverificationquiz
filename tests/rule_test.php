@@ -27,15 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once($CFG->dirroot . '/mod/quiz/accessrule/faceverificationquiz/rule.php');
 
-
 /**
  * Unit tests for the quizaccess_faceverificationquiz plugin.
- *
- * @copyright  2011 The Open University
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class quizaccess_faceverificationquiz_test extends basic_testcase {
     public function test_faceverificationquiz_rule() {
-
     }
 }

@@ -1,3 +1,0 @@
-Download do Plugin: 
--[https://bitbucket.org/danielgsilva88/faceverificationquiz/get/v0.1.0.zip] ou 
--[https://drive.google.com/drive/folders/1iO14i3t-ZSeKQH08c_MSc1Zw7iSpyx41?usp=sharing].
